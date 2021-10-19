@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Customer Name : {{order.customer.first_name}} {{order.customer.last_name}}</h3>
+<h3>Product : {{order.product.name}}</h3>
+<h3>Quantity : {{order.quantity}}</h3>
+<h3>Total Price : {{order.price}}</h3>
+<h3>Category : {{order.product.category.name}}</h3>
+
+{% for order_update in order_updates %}
+<p>{{order_update.update_desc}}</p>
+<p>{{order_update.timestamp}}</p>
+<hr>
+{% endfor %}
+{% endblock %}
