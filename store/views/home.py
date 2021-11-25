@@ -14,11 +14,15 @@ class Index(View):
             request.session['cart'] = {}
         categoryID = request.GET.get('category')
         search = request.GET.get('search')
+        min_price = request.GET.get('min')
+        max_price = request.GET.get('max')
         allproducts = Product.get_all_products()
         if categoryID:
             products = Product.get_all_products_by_categoryid(categoryID).order_by('-rating')
         elif search:
             products = Product.get_all_products_by_string(search).order_by('-rating')
+        elif min_price:
+            products=Product.objects.filter(price__range=(min_price,max_price))
         else:
             products = Product.get_all_products()
 

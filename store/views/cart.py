@@ -6,4 +6,5 @@ class Cart(View):
     def get(self, request):
         ids = list(request.session.get('cart').keys())
         products = Product.get_products_by_ids(ids)
-        return render(request, 'cart.html', {'products':products})
+        allproducts = Product.get_all_products()
+        return render(request, 'cart.html', {'products':products,'allproducts':allproducts})

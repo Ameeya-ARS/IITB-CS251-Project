@@ -1,6 +1,7 @@
 from django.db import models
 from .product import Product
 from .customer import Customer
+from .transporter import Transporter
 import datetime
 
 class Order(models.Model):
@@ -16,6 +17,7 @@ class Order(models.Model):
     zip = models.IntegerField(default=1)
     date = models.DateField(default=datetime.datetime.today)
     status = models.BooleanField(default=False)
+    transporter = models.ForeignKey(Transporter, on_delete=models.CASCADE, default=1)
 
     def placeOrder(self):
         self.save()
@@ -26,3 +28,21 @@ class Order(models.Model):
     @staticmethod
     def get_orders_by_customer(customer_id):
         return Order.objects.filter(customer = customer_id).order_by('-date')
+
+    @staticmethod
+    def get_all_orders_by_transporter(transporterID):
+        return Order.objects.filter(transporter = transporterID)
+    
+    @staticmethod
+    def get_all_orders_by_categoryid_transporter(category_id,transporterID):
+        if category_id:
+            return Order.objects.filter(transporter=transporterID).filter(category = category_id)
+        else:
+            return Order.get_all_orders_by_transporter(transporterID)
+    
+    @staticmethod
+    def get_all_orders_by_string_transporterID(search, transporterID):
+        if search:
+            return Order.objects.filter(transporter = transporterID).filter(name__icontains=search)
+        else:
+            return Order.get_all_orders_by_transporter(transporterID)

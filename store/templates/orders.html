@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Drifter | Your Thoughts
+{% endblock %}
 
 {% block content %}
 {% load cart %}
 {% load custom_filter %}
 <div class="container">
     <div class="border rounded p-4 m-4">
+        <p>Customer Name : {{customer_obj.first_name}} {{customer_obj.last_name}}</p>
         <p class="display-4 pl-4 ml-4">Your Orders</p>
         <hr>
         <table class="table">

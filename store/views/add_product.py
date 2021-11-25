@@ -24,4 +24,4 @@ class AddProduct(View):
         category = Category.get_category_by_name(category_name)
         full_image = "uploads/products/"+image
         Product(name=name, price=price, category=category, description=description, image=full_image, stock=stock, vendor=vendor).save()
-        return render(request, 'add_product.html', {'categories':categories})
+        return redirect('vendor_homepage')

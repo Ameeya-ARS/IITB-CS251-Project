@@ -25,7 +25,7 @@ class VendorSignup(View):
         if not error_message:
             vendor.password = make_password(vendor.password)
             vendor.register()
-            return redirect('')
+            return redirect('vendor_login')
         else :
             return render(request, 'vendor_signup.html', {'error':error_message})   
 

@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Drifter | Order Your Thoughts
+{% endblock %}
+
 {% block navbar %}
 <form class="d-flex">
 	<input class="form-control me-2" action="" name="search" type="search" placeholder="Search" aria-label="Search">
-	<button class="btn btn-outline-success" type="submit">Search</button>
+	<button class="btn btn-outline-warning" type="submit">Search</button>
 </form>
 {% endblock %}
 
@@ -11,6 +15,31 @@
 
 {% load cart %}
 {% load custom_filter %}
+
+<style>
+	#filterform{
+		margin-top : 20% ;
+		position : relative ;
+		padding : 10px 10px ;
+		border-radius : 5px ;
+		border : 1px solid silver ;
+	}
+
+	label{
+		width : 100% ;
+		font-size : 26px ;
+		margin-left : 23% ;
+		margin-bottom : 0.5% ;
+		color : rgba(255,0,0,0.8) ;
+		text-shadow : 1px 1px 1px red ;
+	}
+
+	#fp{
+		margin-top : 10% ;
+		margin-bottom : 5% ;
+	}
+
+</style>
 <!-- body -->
 <div class="container-fluid mt-3">
 	<div class="row">
@@ -27,6 +56,18 @@
 				<a href="/?category={{category.id}}"
 					class="list-group-item list-group-item-action">{{category.name}}</a>
 				{% endfor %}
+				
+
+				<div id="filterform">
+					<label> Filter By Price </label>
+					<hr>
+					<form class="d-flex" id="fp">
+						<input class="form-control me-1" action="" name="min" type="min" placeholder="Min" aria-label="Min">
+						<input class="form-control me-1" action="" name="max" type="max" placeholder="Max" aria-label="Max">
+						<button class="btn btn-outline-danger" type="submit">FILTER</button>
+					</form>
+				</div>
+				
 			</div>
 		</div>
 

@@ -6,6 +6,7 @@ from.models.orders import Order
 from .models.review import Review
 from .models.order_update import Order_Update_View
 from .models.vendor import Vendor
+from .models.transporter import Transporter
 
 class AdminProduct(admin.ModelAdmin):
     list_display = ['name', 'price', 'category']
@@ -31,6 +32,7 @@ admin.site.register(Product, AdminProduct)
 admin.site.register(Category, AdminCategory)
 admin.site.register(Customer, AdminCustomer)
 admin.site.register(Vendor)
+admin.site.register(Transporter)
 admin.site.register(Order, AdminOrder)
 admin.site.register(Review, AdminReview)
 admin.site.register(Order_Update_View, Admin_Order_Update_View)
