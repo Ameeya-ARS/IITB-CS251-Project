@@ -10,7 +10,7 @@
 # Backend  
 - Django Famework
 
-# Features For Coustomer
+# Features For Customer
 
 - Buy/Add to Cart 🛒 
 - Making order to their own address .
