@@ -25,11 +25,11 @@
 - Modify Product
 - Can Check Ratings For Their Product
 
-# Features For Transpoter 
+# Features For Transporter 
 
-- Order Will Automatically Assign To Avaible Transpoter
-- Transpoter Can Change Product Delivary status 
-- Check All Delivered/Undelivered Products
+- Order will be automatically assigned To available Transporter
+- Transporter Can Change Product Delivery status 
+- Check the status of all Delivered/Undelivered Products
 
 # Installation 
 
